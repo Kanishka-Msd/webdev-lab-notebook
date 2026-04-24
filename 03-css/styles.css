@@ -47,7 +47,6 @@ html {
 /* navigation */
 
 .books-page .navbar {
-  
   padding: 20px 0;
   background-color: var(--dark-slate-infinity);
 }
@@ -142,7 +141,6 @@ html {
 
 /* covers */
 
-
 .books-page .cover-gallery {
   display: flex;
   justify-content: space-between;
@@ -160,7 +158,6 @@ html {
 .books-page .cover-image:hover {
   transform: scale(1.07);
 }
-
 
 /* table */
 
@@ -310,4 +307,3 @@ html {
 .form-page .form-note a {
   color: var(--midnight-blue);
 }
-
