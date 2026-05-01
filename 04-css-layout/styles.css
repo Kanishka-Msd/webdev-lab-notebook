@@ -8,6 +8,71 @@ body {
 }
 
 /* Exercise 01 - Center */
+
+.container {
+  height: 100vh; /* full screen height */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+}
+
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 1rem;
+  background: var(--purple);
+  color: var(--light-text-color);
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box h1 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1.75rem;
+}
+h1 {
+  text-align: center;
+}
+
+/* Common styles for Flexbox and CSS Grid */
+.flex-item,
+.grid-item {
+  padding: 10px;
+  background-color: var(--purple);
+  color: var(--light-text-color);
+  font-size: 2em;
+  text-align: center;
+}
+
+.flex-item {
+  width: 160px;
+  height: 80px;
+  margin: 10px;
+}
+
+/* Exercise 02 - Flexbox */
+:root {
+  --purple: #800080;
+  --light-text-color: #fefefe;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Exercise 01 - Center */
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .box {
   width: 200px;
   height: 100px;
@@ -16,6 +81,9 @@ body {
   color: var(--light-text-color);
   font-size: 1.75rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -39,7 +107,270 @@ h1 {
 }
 
 /* Exercise 02 - Flexbox */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  color: black;
+  scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+.top-header {
+  background: black;
+  color: white;
+  padding: 40px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+/*  NAVIGATION  */
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+/* Hover - green underline */
+.navigation a:hover {
+  color: #5bd94b;
+  border-bottom-color: #5bd94b;
+}
+
+/* ===== MAIN AREA ===== */
+.main-area {
+  background: white;
+  padding: 48px 80px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/*  GAME CARDS  */
+.game-card {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 32px 28px;
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover - lift up */
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* :target - green border when nav link clicked */
+.game-card:target {
+  border-color: #5bd94b;
+  box-shadow: 0 0 0 3px #5bd94b;
+}
+
+.game-card h2 {
+  margin: 0 0 28px;
+  font-size: 1.75rem;
+}
+
+.game-card p {
+  font-size: 1rem;
+  margin: 0 0 26px;
+  line-height: 1.5;
+}
+
+/* FIGURE / IMAGE — default (Goose & Dino) */
+.game-card figure {
+  margin: auto 0 0;
+  text-align: center;
+}
+
+.game-card img {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+/*  DINO — lift up  */
+#dino figure {
+  margin: 20px 0 0;
+}
+#dino img {
+  width: 200px;
+  max-height: 220px;
+}
+
+/*  FLAPPY BIRD — right after text, smaller image  */
+#flappy figure {
+  margin: 0;
+}
+
+#flappy img {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.game-card figcaption {
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+/*  FOOTER  */
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 26px;
+}
+
+.footer p {
+  margin: 0;
+}
 
 /* Exercise 03 - CSS Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 80px 300px 100px 80px;
+  gap: 4px;
+}
+
+.item1 {
+  grid-column: 1 / 4;
+}
+
+.item2 {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+}
+
+.item3 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.item4 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.item5 {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.item6 {
+  display: none;
+}
+
+.item7 {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.item8 {
+  grid-column: 1 / 4;
+  grid-row: 4 / 5;
+}
 
 /* Exercise 04 - CSS Grid Areas */
+
+.ex04-grid > h1 {
+  display: none;
+}
+
+.ex04-grid .header,
+.ex04-grid .article,
+.ex04-grid .aside,
+.ex04-grid .section,
+.ex04-grid .footer {
+  background-color: var(--purple);
+  color: var(--light-text-color);
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.ex04-grid .header {
+  grid-area: header;
+}
+.ex04-grid .article {
+  grid-area: article;
+}
+.ex04-grid .aside {
+  grid-area: aside;
+}
+.ex04-grid .section {
+  grid-area: section;
+}
+.ex04-grid .footer {
+  grid-area: footer;
+}
+
+/*  MOBILE (default)  */
+.ex04-grid {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  grid-template-areas:
+    "header"
+    "article"
+    "section"
+    "aside"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 300px 300px 80px 80px;
+}
+
+/*  TABLET (768px)  */
+@media (min-width: 768px) {
+  .ex04-grid {
+    grid-template-areas:
+      "header  header"
+      "article aside"
+      "section section"
+      "footer  footer";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 80px 300px 200px 80px;
+  }
+}
+
+/*  LAPTOP (1024px)  */
+@media (min-width: 1024px) {
+  .ex04-grid {
+    grid-template-areas:
+      "header  header"
+      "aside   article"
+      "section section"
+      "footer  footer";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 80px 300px 200px 80px;
+  }
+}
