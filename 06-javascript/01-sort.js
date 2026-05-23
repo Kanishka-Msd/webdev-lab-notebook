@@ -22,11 +22,21 @@ const pokemons = [
 ];
 
 const sortPokemons = function logSortedPokemons(sortType) {
-  const sortedPokemons = [];
-  // Add your code here
+  const sortedPokemons = [...pokemons];
+
+  if (sortType === 'numerically, in ascending order') {
+    sortedPokemons.sort((a, b) => a.id - b.id);
+  } else if (sortType === 'numerically, in descending order') {
+    sortedPokemons.sort((a, b) => b.id - a.id);
+  } else if (sortType === 'alphabetically, in ascending order') {
+    sortedPokemons.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortType === 'alphabetically, in descending order') {
+    sortedPokemons.sort((a, b) => b.name.localeCompare(a.name));
+  }
 
   return sortedPokemons;
 };
+
 
 console.log(sortPokemons('numerically, in ascending order'));
 console.log(sortPokemons('numerically, in descending order'));

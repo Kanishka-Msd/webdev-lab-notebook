@@ -1,4 +1,29 @@
 // Add your code here
+const calculateAge = function(dateString) {
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) {
+    return 'Error: Invalid date format';
+  }
+
+  const today = new Date();
+  
+  if (date > today) {
+    return 'Error: Birth date cannot be in the future';
+  }
+
+  let age = today.getFullYear() - date.getFullYear();
+  const monthDiff = today.getMonth() - date.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+    age--;
+  }
+
+  if (age > 125) {
+    return 'Are you sure you are more than 125 years old?';
+  }
+
+  return `You are ${age} years old`;
+};
 
 console.log(calculateAge('2000-07-01'));
 // You are 25 years old

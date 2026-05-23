@@ -22,6 +22,35 @@ const pokemons = [
 ];
 
 // Add your code here for: forEachPokemon
+const forEachPokemon = function() {
+  const result = [];
+  pokemons.forEach(p => {
+    result.push(`#${p.id} ${p.name} - ${p.types.join(' / ')}`);
+  });
+  return result.join('\n');
+};
+
+const filterPokemons = function(type) {
+  return pokemons
+    .filter(p => p.types.includes(type))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(p => p.name);
+};
+
+const searchPokemons = function(query) {
+  const q = query.toLowerCase();
+  return pokemons.filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    p.types.some(t => t.toLowerCase().includes(q))
+  );
+};
+
+const reducePokemons = pokemons.reduce((acc, p) => {
+  p.types.forEach(type => {
+    acc[type] = (acc[type] || 0) + 1;
+  });
+  return acc;
+}, {});
 
 console.group('=========== forEachPokemon =========== ');
 console.log(forEachPokemon());
