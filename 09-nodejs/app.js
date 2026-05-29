@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
   else if (req.method === 'GET' && req.url === '/form') {
     file.serveFile('/form.html', 200, {}, req, res);
   }
-  else if (req.method === 'POST' && req.url === '/form') {
+  else if (req.method === 'POST' && req.url === '/formExerciseSubmit') {
     let body = '';
     req.on('data', (chunk) => { body += chunk; });
     req.on('end', () => {
@@ -23,6 +23,9 @@ const server = http.createServer((req, res) => {
       res.write(`<p>Email: ${email}</p>`);
       res.end();
     });
+  }
+  else {
+    file.serve(req, res);
   }
 });
 
