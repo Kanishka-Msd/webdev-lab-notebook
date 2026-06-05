@@ -36,6 +36,7 @@ const fetchCatFacts = async function () {
 
   try {
     const response = await fetch('https://catfact.ninja/facts?limit=10');
+    
     const data = await response.json();
 
     data.data.forEach((element) => {
